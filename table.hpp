@@ -108,8 +108,9 @@ class Table
   std::time_t schema_creation_date;
   std::time_t schema_last_update;
 
-  // bool add_record(Record *);
+  bool create_record(Record *);
   bool remove_record(Record *);
+  bool update_record(Record old_record, Record new_record);
   bool update_schema(std::string new_name,
 				     std::vector<Field *> new_fields,
 				     std::vector<Record *> new_records,
