@@ -35,7 +35,7 @@ class Index
 	private:
 	std::vector<Field *> fields;
 	std::vector<Parameters> params;
-}
+};
 
 class Table 
 {
@@ -58,8 +58,8 @@ class Table
 
   bool add_record(Record *);
   bool remove_record(Record *);
-  bool update_schema(std::string new_name = null,
-				     std::vector<Field *> new_fields = null,
-				     std::vector<Record *> new_records = null,
-				     std::vector<Index *> new_indexes = null);
+  bool update_schema(std::string new_name,
+				     std::vector<Field *> new_fields,
+				     std::vector<Record *> new_records,
+				     std::vector<Index *> new_indexes);
 };
