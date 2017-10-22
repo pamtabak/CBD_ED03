@@ -32,6 +32,27 @@ class Index
 	Index()
 	{
 	}
+
+	void add_field (Field *f)
+  	{
+  	  this->fields.push_back(f);
+    }
+
+    void add_params (Parameters p)
+    {
+    	this->params.push_back(p);
+    }
+
+    std::vector<Field *> get_fields ()
+    {
+  	  return this->fields;
+    }
+
+    std::vector<Parameters> get_params ()
+    {
+    	return this->params;
+    }
+
 	private:
 	std::vector<Field *> fields;
 	std::vector<Parameters> params;
@@ -44,6 +65,37 @@ class Table
   {
   	this->schema_creation_date = std::time(nullptr);
   }
+
+  void add_field (Field *f)
+  {
+  	this->fields.push_back(f);
+  }
+
+  void add_record (Record *r)
+  {
+  	this->records.push_back(r);
+  }
+
+  void add_index (Index *i)
+  {
+  	this->indexes.push_back(i);
+  }
+
+  std::vector<Field *> get_fields ()
+  {
+  	return this->fields;
+  }
+
+  std::vector<Record *> get_records ()
+  {
+  	return this->records;
+  }
+
+  std::vector<Index *> get_indexes ()
+  {
+  	return this->indexes;
+  }
+
  private:
   uint32_t lines;
   double   file_size;
@@ -56,7 +108,7 @@ class Table
   std::time_t schema_creation_date;
   std::time_t schema_last_update;
 
-  bool add_record(Record *);
+  // bool add_record(Record *);
   bool remove_record(Record *);
   bool update_schema(std::string new_name,
 				     std::vector<Field *> new_fields,
