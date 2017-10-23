@@ -24,7 +24,7 @@ class Index
   struct Parameters
   {
     std::string type;
-    bool ascendig;
+    bool ascending;
     bool clustered;
   };
   
@@ -33,24 +33,24 @@ class Index
   {
   }
 
-  void add_field (Field *f)
+  void add_field(Field *f)
     {
-      this->fields.push_back(f);
+      fields.push_back(f);
     }
 
-    void add_params (Parameters p)
+    void add_params(Parameters p)
     {
-      this->params.push_back(p);
+      params.push_back(p);
     }
 
-    std::vector<Field *> get_fields ()
+    std::vector<Field *> get_fields()
     {
-      return this->fields;
+      return fields;
     }
 
-    std::vector<Parameters> get_params ()
+    std::vector<Parameters> get_params()
     {
-      return this->params;
+      return params;
     }
 
   private:
@@ -63,37 +63,37 @@ class Table
  public:
   Table()
   {
-    this->schema_creation_date = std::time(NULL);
+    schema_creation_date = std::time(NULL);
   }
 
-  void add_field (Field *f)
+  void add_field(Field *f)
   {
-    this->fields.push_back(f);
+    fields.push_back(f);
   }
 
-  void add_record (Record *r)
+  void add_record(Record *r)
   {
-    this->records.push_back(r);
+    records.push_back(r);
   }
 
-  void add_index (Index *i)
+  void add_index(Index *i)
   {
-    this->indexes.push_back(i);
+    indexes.push_back(i);
   }
 
-  std::vector<Field *> get_fields ()
+  std::vector<Field *> get_fields()
   {
-    return this->fields;
+    return fields;
   }
 
-  std::vector<Record *> get_records ()
+  std::vector<Record *> get_records()
   {
-    return this->records;
+    return records;
   }
 
-  std::vector<Index *> get_indexes ()
+  std::vector<Index *> get_indexes()
   {
-    return this->indexes;
+    return indexes;
   }
 
  private:
@@ -112,7 +112,7 @@ class Table
   bool remove_record(Record *);
   bool update_record(Record old_record, Record new_record);
   bool update_schema(std::string new_name,
-             std::vector<Field *> new_fields,
-             std::vector<Record *> new_records,
-             std::vector<Index *> new_indexes);
+                     std::vector<Field *> new_fields,
+                     std::vector<Record *> new_records,
+                     std::vector<Index *> new_indexes);
 };
