@@ -113,6 +113,5 @@ class Table
   bool update_record(Record old_record, Record new_record);
   bool update_schema(std::string new_name,
                      std::vector<Field *> new_fields,
-                     std::vector<Record *> new_records,
                      std::vector<Index *> new_indexes);
 };
