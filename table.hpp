@@ -63,7 +63,7 @@ class Table
  public:
   Table()
   {
-  	this->schema_creation_date = std::time(nullptr);
+  	this->schema_creation_date = std::time(NULL);
   }
 
   void add_field (Field *f)
