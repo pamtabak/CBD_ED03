@@ -2,12 +2,15 @@
 1. FIELD: 
 Atributo de uma relação, ou coluna de uma tabela, ou campo de um registro. 
 
-Define um item de dado como sendo uma sequencia de um ou mais bytes que possui um significado. 
+Define um item de dado como sendo uma sequencia de um ou mais bytes que possui
+um significado.
 
 Seus possíveis valores definem o “Domínio” do campo:
-- Podem ser de tamanho fixo ou variável, por exemplo, strings ou campos binários longos: OK
-- Os campos também, por sua vez, podem representar uma estrutura (tipo ou classe de objetos), 
-ou ser multivalorados (sequência como um array ou lista de valores): OK
+- Podem ser de tamanho fixo ou variável, por exemplo, strings ou campos
+  binários longos: OK
+- Os campos também, por sua vez, podem representar uma estrutura (tipo ou
+  classe de objetos), ou ser multivalorados (sequência como um array ou
+  lista de valores): OK
 - Deve prever restrições de integridade associada ao campo, tais como:
   Ser chave primária (ou parte da chave) : OK
   Unicidade de valor (UNIQUE): OK
@@ -15,7 +18,8 @@ ou ser multivalorados (sequência como um array ou lista de valores): OK
   Se é uma chave estrangeira: OK
   Se possui um padrão de formação (associado ao domínio), 
   Valor padrão (default): OK
-  Restrições quanto ao UPDATE de certo valor para outro (por exemplo, de um estado civil para outro): OK
+  Restrições quanto ao UPDATE de certo valor para outro (por exemplo, de um
+  estado civil para outro): OK
 */
 
 #pragma once
@@ -26,8 +30,9 @@ ou ser multivalorados (sequência como um array ou lista de valores): OK
 class Field 
 {
  public:
-  Field(bool unique, bool nullable, bool mandatory, bool updatable, bool primary_key,
-    bool foreign_key, uint16_t size, uint16_t max_size, const std::string &name) :
+  Field(bool unique, bool nullable, bool mandatory, bool updatable,
+    bool primary_key, bool foreign_key, uint16_t size, uint16_t max_size,
+    const std::string &name) :
       unique_(unique),
       nullable_(nullable),
       mandatory_(mandatory),
@@ -48,6 +53,12 @@ class Field
   uint16_t max_size_;
   std::string name_;
 };
+
+/*
+Para especializar a classe field para qualquer tipo de campo (inteiro, double,
+entre outros) usamos uma classe derivada da de cima com um template para algum
+tipo de valor. Para campos multivalorados, T será um vector de algum tipo.
+*/
 
 template <class T> class ValueField : Field 
 {
