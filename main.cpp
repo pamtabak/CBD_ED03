@@ -14,7 +14,7 @@ data_nascimento BETWEEN ‘2000-01-01’ and ‘2010-06-31’ ”).
 #include "table.hpp"
 #include <iostream>
 
-// g++-6 main.cpp table.hpp field.hpp -o main.out
+// g++ main.cpp -o main.out
 
 int main () 
 {
